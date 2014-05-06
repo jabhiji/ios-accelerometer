@@ -26,7 +26,7 @@
         R = 15.0;
         speedX = 0.0;
         speedY = 0.0;
-        COR = 0.8;
+        COR = 0.5;
     }
     
     return self;
@@ -45,8 +45,8 @@
 - (void) updateBallPosition
 {
     // update ball velocity
-    speedX += 0.1*accelerationX;
-    speedY += -0.1*accelerationY;
+    speedX += 0.3*accelerationX;
+    speedY += -0.3*accelerationY;
     
     // update ball coordinates in the model
     x += speedX;
@@ -54,19 +54,19 @@
     
     // check for collisions with walls
     if (x > WIDTH - R) {
-        x = WIDTH - R - 1;
+        x = WIDTH - R;// - 1;
         speedX = -COR*fabsf(speedX);
     }
     if (y > HEIGHT - R) {
-        y = HEIGHT - R - 1;
+        y = HEIGHT - R;// - 1;
         speedY = -COR*fabsf(speedY);
     }
     if (x < R) {
-        x = R + 1;
+        x = R;// + 1;
         speedX = COR*fabsf(speedX);
     }
     if (y < R) {
-        y = R + 1;
+        y = R;// + 1;
         speedY = COR*fabsf(speedY);
     }
     

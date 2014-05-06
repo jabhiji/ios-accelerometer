@@ -46,31 +46,38 @@
 
     if ([motionManager isAccelerometerAvailable]) {
         
-        NSOperationQueue *queue = [[NSOperationQueue alloc] init];
-        
-        [motionManager startAccelerometerUpdatesToQueue:queue withHandler:^(CMAccelerometerData *accelerometerData, NSError *error) {
-            dispatch_async(dispatch_get_main_queue(), ^{
-                model.accelerationX = accelerometerData.acceleration.x;
-                model.accelerationY = accelerometerData.acceleration.y;
-                self.accX.text = [NSString stringWithFormat:@"%.2f",accelerometerData.acceleration.x];
-                self.accY.text = [NSString stringWithFormat:@"%.2f",accelerometerData.acceleration.y];
-                self.accZ.text = [NSString stringWithFormat:@"%.2f",accelerometerData.acceleration.z];
-            });
-        }];
-        
-        // begin animation
-        NSTimer* timer = [NSTimer timerWithTimeInterval:1.0/60.0
-                                                 target:self
-                                               selector:@selector(update)
-                                               userInfo:nil
-                                                repeats:YES];
-        
-        [[NSRunLoop mainRunLoop] addTimer:timer forMode:NSDefaultRunLoopMode];
+        [self startGameLoop];
         
     } else {
-        NSLog(@"No accelerometer is available! You may be running on the iOS simulator...");
+        
+        NSLog(@"No accelerometer! You may be running on the iOS simulator...");
     }
     
+}
+
+// get acceleration data and animate ball motion based on current acceleration
+- (void) startGameLoop
+{
+    NSOperationQueue *queue = [[NSOperationQueue alloc] init];
+    
+    [motionManager startAccelerometerUpdatesToQueue:queue withHandler:^(CMAccelerometerData *accelerometerData, NSError *error) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            model.accelerationX = accelerometerData.acceleration.x;
+            model.accelerationY = accelerometerData.acceleration.y;
+            self.accX.text = [NSString stringWithFormat:@"%.2f g",accelerometerData.acceleration.x];
+            self.accY.text = [NSString stringWithFormat:@"%.2f g",accelerometerData.acceleration.y];
+            self.accZ.text = [NSString stringWithFormat:@"%.2f g",accelerometerData.acceleration.z];
+        });
+    }];
+    
+    // begin animation
+    NSTimer* timer = [NSTimer timerWithTimeInterval:1.0/60.0
+                                             target:self
+                                           selector:@selector(update)
+                                           userInfo:nil
+                                            repeats:YES];
+    
+    [[NSRunLoop mainRunLoop] addTimer:timer forMode:NSDefaultRunLoopMode];
 }
 
 // update model parameters and plot the ball using the view
