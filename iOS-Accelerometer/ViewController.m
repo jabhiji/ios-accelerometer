@@ -50,16 +50,40 @@
         
         [motionManager startAccelerometerUpdatesToQueue:queue withHandler:^(CMAccelerometerData *accelerometerData, NSError *error) {
             dispatch_async(dispatch_get_main_queue(), ^{
+                model.accelerationX = accelerometerData.acceleration.x;
+                model.accelerationY = accelerometerData.acceleration.y;
                 self.accX.text = [NSString stringWithFormat:@"%.2f",accelerometerData.acceleration.x];
                 self.accY.text = [NSString stringWithFormat:@"%.2f",accelerometerData.acceleration.y];
                 self.accZ.text = [NSString stringWithFormat:@"%.2f",accelerometerData.acceleration.z];
             });
         }];
         
+        // begin animation
+        NSTimer* timer = [NSTimer timerWithTimeInterval:1.0/60.0
+                                                 target:self
+                                               selector:@selector(update)
+                                               userInfo:nil
+                                                repeats:YES];
+        
+        [[NSRunLoop mainRunLoop] addTimer:timer forMode:NSDefaultRunLoopMode];
+        
     } else {
         NSLog(@"No accelerometer is available! You may be running on the iOS simulator...");
     }
     
+}
+
+// update model parameters and plot the ball using the view
+- (void) update
+{
+    // remove earlier image
+    [ballView removeFromSuperview];
+    
+    // update ball position
+    [model updateBallPosition];
+    
+    // draw the ball at the new location
+    [self showBall];
 }
 
 // draw the balls in the defined view
