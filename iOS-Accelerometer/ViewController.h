@@ -16,6 +16,12 @@
 @property (strong, nonatomic) IBOutlet UILabel *accX;
 @property (strong, nonatomic) IBOutlet UILabel *accY;
 @property (strong, nonatomic) IBOutlet UILabel *accZ;
+@property (strong, nonatomic) IBOutlet UILabel *minX;
+@property (strong, nonatomic) IBOutlet UILabel *minY;
+@property (strong, nonatomic) IBOutlet UILabel *minZ;
+@property (strong, nonatomic) IBOutlet UILabel *maxX;
+@property (strong, nonatomic) IBOutlet UILabel *maxY;
+@property (strong, nonatomic) IBOutlet UILabel *maxZ;
 
 // motion manager
 @property (strong, nonatomic) CMMotionManager *motionManager;
@@ -26,10 +32,9 @@
 // the view
 @property (weak, nonatomic) IBOutlet UIView *blackBox;
 
-// the ball image
-@property (nonatomic, strong) UIImage* ball;
+// the ball images
+@property (nonatomic, strong) UIImage* yellowball;
+@property (nonatomic, strong) UIImage* blueball;
 @property (nonatomic, strong) UIImageView* ballView;
-
-- (void) showBall;
 
 @end

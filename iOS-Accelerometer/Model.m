@@ -12,7 +12,8 @@
 
 @synthesize x, y, R;
 @synthesize speedX, speedY, COR;
-@synthesize accelerationX, accelerationY;
+@synthesize accelerationX, accelerationY, accelerationZ;
+@synthesize minAccX, maxAccX, minAccY, maxAccY, minAccZ, maxAccZ;
 @synthesize WIDTH, HEIGHT;
 
 // Override superclass implementation of init
@@ -23,10 +24,18 @@
     
     if (self) {
         
-        R = 15.0;
+        R = 5.0;
         speedX = 0.0;
         speedY = 0.0;
         COR = 0.5;
+        
+        minAccX = 10.0;
+        maxAccX = -10.0;
+        minAccY = 10.0;
+        maxAccY = -10.0;
+        minAccZ = 10.0;
+        maxAccZ = -10.0;
+        
     }
     
     return self;
@@ -44,6 +53,7 @@
 
 - (void) updateBallPosition
 {
+    /*
     // update ball velocity
     speedX += 0.3*accelerationX;
     speedY += -0.3*accelerationY;
@@ -69,7 +79,10 @@
         y = R;// + 1;
         speedY = COR*fabsf(speedY);
     }
+    */
     
+    x = WIDTH/2 + (WIDTH/4)*accelerationX;
+    y = HEIGHT/2 - (HEIGHT/4)*accelerationY;
 }
 
 @end

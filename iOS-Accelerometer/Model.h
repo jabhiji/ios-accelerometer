@@ -14,8 +14,9 @@
 
 @property float speedX, speedY, COR;
 
-@property float accelerationX;
-@property float accelerationY;
+@property float accelerationX, minAccX, maxAccX;
+@property float accelerationY, minAccY, maxAccY;
+@property float accelerationZ, minAccZ, maxAccZ;
 
 @property float WIDTH;
 @property float HEIGHT;

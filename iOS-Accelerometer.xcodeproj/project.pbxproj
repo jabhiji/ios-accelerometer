@@ -25,6 +25,10 @@
 		1E2E71571918B4DA009D232C /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E2E71561918B4DA009D232C /* background.png */; };
 		1E2E715A1918C079009D232C /* Model.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E2E71591918C079009D232C /* Model.m */; };
 		1E2E715C1918C5F9009D232C /* yellowBall.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E2E715B1918C5F9009D232C /* yellowBall.png */; };
+		1E2E715E1918E6D9009D232C /* blueBall.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E2E715D1918E6D9009D232C /* blueBall.png */; };
+		1E2E71601918E9B2009D232C /* resetButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E2E715F1918E9B2009D232C /* resetButton.png */; };
+		1E2E71621918EC1F009D232C /* target@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E2E71611918EC1F009D232C /* target@2x.png */; };
+		1E2E71651918ECD0009D232C /* Circles.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E2E71641918ECD0009D232C /* Circles.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +66,11 @@
 		1E2E71581918C079009D232C /* Model.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Model.h; sourceTree = "<group>"; };
 		1E2E71591918C079009D232C /* Model.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Model.m; sourceTree = "<group>"; };
 		1E2E715B1918C5F9009D232C /* yellowBall.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = yellowBall.png; sourceTree = "<group>"; };
+		1E2E715D1918E6D9009D232C /* blueBall.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blueBall.png; sourceTree = "<group>"; };
+		1E2E715F1918E9B2009D232C /* resetButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = resetButton.png; sourceTree = "<group>"; };
+		1E2E71611918EC1F009D232C /* target@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "target@2x.png"; sourceTree = "<group>"; };
+		1E2E71631918ECD0009D232C /* Circles.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Circles.h; sourceTree = "<group>"; };
+		1E2E71641918ECD0009D232C /* Circles.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Circles.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,13 +135,18 @@
 				1E2E712E1918B482009D232C /* AppDelegate.h */,
 				1E2E712F1918B482009D232C /* AppDelegate.m */,
 				1E2E71311918B482009D232C /* Main.storyboard */,
+				1E2E71631918ECD0009D232C /* Circles.h */,
+				1E2E71641918ECD0009D232C /* Circles.m */,
 				1E2E71581918C079009D232C /* Model.h */,
 				1E2E71591918C079009D232C /* Model.m */,
 				1E2E71341918B482009D232C /* ViewController.h */,
 				1E2E71351918B482009D232C /* ViewController.m */,
 				1E2E71371918B482009D232C /* Images.xcassets */,
 				1E2E71561918B4DA009D232C /* background.png */,
+				1E2E715F1918E9B2009D232C /* resetButton.png */,
 				1E2E715B1918C5F9009D232C /* yellowBall.png */,
+				1E2E71611918EC1F009D232C /* target@2x.png */,
+				1E2E715D1918E6D9009D232C /* blueBall.png */,
 				1E2E71261918B482009D232C /* Supporting Files */,
 			);
 			path = "iOS-Accelerometer";
@@ -243,6 +257,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1E2E71601918E9B2009D232C /* resetButton.png in Resources */,
+				1E2E71621918EC1F009D232C /* target@2x.png in Resources */,
+				1E2E715E1918E6D9009D232C /* blueBall.png in Resources */,
 				1E2E715C1918C5F9009D232C /* yellowBall.png in Resources */,
 				1E2E71381918B482009D232C /* Images.xcassets in Resources */,
 				1E2E71571918B4DA009D232C /* background.png in Resources */,
@@ -267,6 +284,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1E2E71361918B482009D232C /* ViewController.m in Sources */,
+				1E2E71651918ECD0009D232C /* Circles.m in Sources */,
 				1E2E71301918B482009D232C /* AppDelegate.m in Sources */,
 				1E2E712C1918B482009D232C /* main.m in Sources */,
 				1E2E715A1918C079009D232C /* Model.m in Sources */,
