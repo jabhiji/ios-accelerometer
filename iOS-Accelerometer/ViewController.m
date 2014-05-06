@@ -77,17 +77,17 @@
             if (model.accelerationY > model.maxAccY) model.maxAccY = model.accelerationY;
             if (model.accelerationZ > model.maxAccZ) model.maxAccZ = model.accelerationZ;
 
-            self.minX.text = [NSString stringWithFormat:@"%.1f g",model.minAccX];
-            self.minY.text = [NSString stringWithFormat:@"%.1f g",model.minAccY];
-            self.minZ.text = [NSString stringWithFormat:@"%.1f g",model.minAccZ];
+            self.minX.text = [NSString stringWithFormat:@"%.1f",model.minAccX];
+            self.minY.text = [NSString stringWithFormat:@"%.1f",model.minAccY];
+            self.minZ.text = [NSString stringWithFormat:@"%.1f",model.minAccZ];
             
-            self.accX.text = [NSString stringWithFormat:@"%.1f g",accelerometerData.acceleration.x];
-            self.accY.text = [NSString stringWithFormat:@"%.1f g",accelerometerData.acceleration.y];
-            self.accZ.text = [NSString stringWithFormat:@"%.1f g",accelerometerData.acceleration.z];
+            self.accX.text = [NSString stringWithFormat:@"%.1f",accelerometerData.acceleration.x];
+            self.accY.text = [NSString stringWithFormat:@"%.1f",accelerometerData.acceleration.y];
+            self.accZ.text = [NSString stringWithFormat:@"%.1f",accelerometerData.acceleration.z];
             
-            self.maxX.text = [NSString stringWithFormat:@"%.1f g",model.maxAccX];
-            self.maxY.text = [NSString stringWithFormat:@"%.1f g",model.maxAccY];
-            self.maxZ.text = [NSString stringWithFormat:@"%.1f g",model.maxAccZ];
+            self.maxX.text = [NSString stringWithFormat:@"%.1f",model.maxAccX];
+            self.maxY.text = [NSString stringWithFormat:@"%.1f",model.maxAccY];
+            self.maxZ.text = [NSString stringWithFormat:@"%.1f",model.maxAccZ];
         
         });
     }];
