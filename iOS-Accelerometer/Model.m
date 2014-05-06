@@ -24,17 +24,17 @@
     
     if (self) {
         
-        R = 5.0;
+        R = 10.0;
         speedX = 0.0;
         speedY = 0.0;
         COR = 0.5;
         
-        minAccX = 10.0;
-        maxAccX = -10.0;
-        minAccY = 10.0;
-        maxAccY = -10.0;
-        minAccZ = 10.0;
-        maxAccZ = -10.0;
+        minAccX = 0.0;
+        maxAccX = 0.0;
+        minAccY = 0.0;
+        maxAccY = 0.0;
+        minAccZ = 0.0;
+        maxAccZ = 0.0;
         
     }
     
@@ -81,8 +81,18 @@
     }
     */
     
-    x = WIDTH/2 + (WIDTH/4)*accelerationX;
-    y = HEIGHT/2 - (HEIGHT/4)*accelerationY;
+    x = WIDTH/2 + (1.0/2.0)*(WIDTH/2)*accelerationX;
+    y = HEIGHT/2 - (1.0/2.0)*(HEIGHT/2)*accelerationY;
+}
+
+- (void) resetValues
+{
+    minAccX = 0.0;
+    maxAccX = 0.0;
+    minAccY = 0.0;
+    maxAccY = 0.0;
+    minAccZ = 0.0;
+    maxAccZ = 0.0;
 }
 
 @end

@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <CoreMotion/CoreMotion.h>
 #import "Model.h"
+#import "Circles.h"
 
 @interface ViewController : UIViewController
 
@@ -30,11 +31,11 @@
 @property (strong, nonatomic) Model *model;
 
 // the view
-@property (weak, nonatomic) IBOutlet UIView *blackBox;
+@property (strong, nonatomic) IBOutlet Circles *myView;
 
 // the ball images
 @property (nonatomic, strong) UIImage* yellowball;
-@property (nonatomic, strong) UIImage* blueball;
 @property (nonatomic, strong) UIImageView* ballView;
+- (IBAction)resetValues:(id)sender;
 
 @end

@@ -18,10 +18,9 @@
 @synthesize accX, accY, accZ;
 @synthesize maxX, maxY, maxZ;
 @synthesize model;
-@synthesize blackBox;
+@synthesize myView;
 @synthesize motionManager;
 @synthesize yellowball;
-@synthesize blueball;
 @synthesize ballView;
 
 - (void)viewDidLoad
@@ -31,12 +30,14 @@
     
     // ball image
     yellowball = [UIImage imageNamed:@"yellowBall.png"];
-    blueball = [UIImage imageNamed:@"blueBall.png"];
+    
+    // draw custom drawing inside the view (as background)
+    [myView setNeedsDisplay];
     
     // initialize model
     model = [[Model alloc] init];
-    model.WIDTH  = self.blackBox.frame.size.width;
-    model.HEIGHT = self.blackBox.frame.size.height;
+    model.WIDTH  = self.myView.frame.size.width;
+    model.HEIGHT = self.myView.frame.size.height;
     [model setInitialBallPosition];
     
     // display initial condition before animation starts
@@ -54,7 +55,7 @@
         
         NSLog(@"No accelerometer! You may be running on the iOS simulator...");
     }
-    
+
 }
 
 // get acceleration data and animate ball motion based on current acceleration
@@ -76,17 +77,17 @@
             if (model.accelerationY > model.maxAccY) model.maxAccY = model.accelerationY;
             if (model.accelerationZ > model.maxAccZ) model.maxAccZ = model.accelerationZ;
 
-            self.minX.text = [NSString stringWithFormat:@"%.2f g",model.minAccX];
-            self.minY.text = [NSString stringWithFormat:@"%.2f g",model.minAccY];
-            self.minZ.text = [NSString stringWithFormat:@"%.2f g",model.minAccZ];
+            self.minX.text = [NSString stringWithFormat:@"%.1f g",model.minAccX];
+            self.minY.text = [NSString stringWithFormat:@"%.1f g",model.minAccY];
+            self.minZ.text = [NSString stringWithFormat:@"%.1f g",model.minAccZ];
             
-            self.accX.text = [NSString stringWithFormat:@"%.2f g",accelerometerData.acceleration.x];
-            self.accY.text = [NSString stringWithFormat:@"%.2f g",accelerometerData.acceleration.y];
-            self.accZ.text = [NSString stringWithFormat:@"%.2f g",accelerometerData.acceleration.z];
+            self.accX.text = [NSString stringWithFormat:@"%.1f g",accelerometerData.acceleration.x];
+            self.accY.text = [NSString stringWithFormat:@"%.1f g",accelerometerData.acceleration.y];
+            self.accZ.text = [NSString stringWithFormat:@"%.1f g",accelerometerData.acceleration.z];
             
-            self.maxX.text = [NSString stringWithFormat:@"%.2f g",model.maxAccX];
-            self.maxY.text = [NSString stringWithFormat:@"%.2f g",model.maxAccY];
-            self.maxZ.text = [NSString stringWithFormat:@"%.2f g",model.maxAccZ];
+            self.maxX.text = [NSString stringWithFormat:@"%.1f g",model.maxAccX];
+            self.maxY.text = [NSString stringWithFormat:@"%.1f g",model.maxAccY];
+            self.maxZ.text = [NSString stringWithFormat:@"%.1f g",model.maxAccZ];
         
         });
     }];
@@ -105,8 +106,8 @@
 - (void) update
 {
     // remove earlier image
-    //[ballView removeFromSuperview];
-    [self showBlueBall];
+    [ballView removeFromSuperview];
+    //[self showBlueBall];
     
     // update ball position
     [model updateBallPosition];
@@ -125,27 +126,17 @@
     ballView = [[UIImageView alloc]
                  initWithFrame:CGRectMake(x-R, y-R, 2*R, 2*R)];
     ballView.image = yellowball;
-    [self.blackBox addSubview:ballView];
+    [self.myView addSubview:ballView];
 }
-
-// draw the balls in the defined view
-- (void) showBlueBall
-{
-    float x = model.x;
-    float y = model.y;
-    float R = model.R;
-    
-    ballView = [[UIImageView alloc]
-                initWithFrame:CGRectMake(x-R, y-R, 2*R, 2*R)];
-    ballView.image = blueball;
-    [self.blackBox addSubview:ballView];
-}
-
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (IBAction)resetValues:(id)sender {
+    [model resetValues];
 }
 
 @end

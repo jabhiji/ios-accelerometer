@@ -20,10 +20,10 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AK1-Ks-fai">
-                                <rect key="frame" x="40" y="69" width="240" height="240"/>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AK1-Ks-fai" customClass="Circles">
+                                <rect key="frame" x="43" y="75" width="240" height="240"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ACCELEROMETER" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FRa-HA-jc5">
                                 <rect key="frame" x="20" y="31" width="280" height="27"/>
@@ -96,12 +96,15 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KPm-f0-RC4">
-                                <rect key="frame" x="97" y="416" width="126" height="44"/>
+                                <rect key="frame" x="113" y="416" width="101" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="RESET" image="resetButton.png">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="resetValues:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="Rk9-gj-vTh"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -110,13 +113,13 @@
                         <outlet property="accX" destination="p3c-FF-3v0" id="PaP-7L-c1O"/>
                         <outlet property="accY" destination="KDo-qN-bR9" id="AeK-IY-FsG"/>
                         <outlet property="accZ" destination="J7J-ye-8kb" id="swP-Hl-bC3"/>
-                        <outlet property="blackBox" destination="AK1-Ks-fai" id="SJq-Ha-Mvt"/>
                         <outlet property="maxX" destination="NLX-v7-ES5" id="xLS-jW-22e"/>
                         <outlet property="maxY" destination="dMn-CH-NMY" id="ZvM-iM-PJU"/>
                         <outlet property="maxZ" destination="ujg-AI-CL1" id="o2u-gD-W9N"/>
                         <outlet property="minX" destination="BRU-If-Ote" id="KPp-mk-JV5"/>
                         <outlet property="minY" destination="lWZ-AR-4ct" id="9oB-Ug-9j8"/>
                         <outlet property="minZ" destination="y0r-ti-V3M" id="mxm-L1-dEd"/>
+                        <outlet property="myView" destination="AK1-Ks-fai" id="lpE-Ug-01R"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>

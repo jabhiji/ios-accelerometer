@@ -23,5 +23,6 @@
 
 - (void) setInitialBallPosition;
 - (void) updateBallPosition;
+- (void) resetValues;
 
 @end
