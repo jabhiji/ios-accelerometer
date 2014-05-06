@@ -23,7 +23,7 @@
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AK1-Ks-fai">
                                 <rect key="frame" x="20" y="75" width="280" height="280"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ACCELEROMETER" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FRa-HA-jc5">
                                 <rect key="frame" x="81" y="31" width="159" height="27"/>
@@ -81,10 +81,12 @@
                         <outlet property="accX" destination="p3c-FF-3v0" id="PaP-7L-c1O"/>
                         <outlet property="accY" destination="KDo-qN-bR9" id="AeK-IY-FsG"/>
                         <outlet property="accZ" destination="J7J-ye-8kb" id="swP-Hl-bC3"/>
+                        <outlet property="blackBox" destination="AK1-Ks-fai" id="SJq-Ha-Mvt"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="277" y="17"/>
         </scene>
     </scenes>
     <resources>

@@ -17,21 +17,38 @@
 @synthesize accX;
 @synthesize accY;
 @synthesize accZ;
+@synthesize model;
+@synthesize blackBox;
+@synthesize motionManager;
+@synthesize ball;
+@synthesize ballView;
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     
+    // ball image
+    ball = [UIImage imageNamed:@"yellowBall.png"];
+    
+    // initialize model
+    model = [[Model alloc] init];
+    model.WIDTH  = self.blackBox.frame.size.width;
+    model.HEIGHT = self.blackBox.frame.size.height;
+    [model setInitialBallPosition];
+    
+    // display initial condition before animation starts
+    [self showBall];
+    
     // initialize motion manager
-    self.motionManager = [[CMMotionManager alloc] init];
-    self.motionManager.accelerometerUpdateInterval = 1.0/60.0;
+    motionManager = [[CMMotionManager alloc] init];
+    motionManager.accelerometerUpdateInterval = 1.0/60.0;
 
-    if ([self.motionManager isAccelerometerAvailable]) {
+    if ([motionManager isAccelerometerAvailable]) {
         
         NSOperationQueue *queue = [[NSOperationQueue alloc] init];
         
-        [self.motionManager startAccelerometerUpdatesToQueue:queue withHandler:^(CMAccelerometerData *accelerometerData, NSError *error) {
+        [motionManager startAccelerometerUpdatesToQueue:queue withHandler:^(CMAccelerometerData *accelerometerData, NSError *error) {
             dispatch_async(dispatch_get_main_queue(), ^{
                 self.accX.text = [NSString stringWithFormat:@"%.2f",accelerometerData.acceleration.x];
                 self.accY.text = [NSString stringWithFormat:@"%.2f",accelerometerData.acceleration.y];
@@ -44,6 +61,20 @@
     }
     
 }
+
+// draw the balls in the defined view
+- (void) showBall
+{
+    float x = model.x;
+    float y = model.y;
+    float R = model.R;
+    
+    ballView = [[UIImageView alloc]
+                 initWithFrame:CGRectMake(x-R, y-R, 2*R, 2*R)];
+    ballView.image = ball;
+    [self.blackBox addSubview:ballView];
+}
+
 
 - (void)didReceiveMemoryWarning
 {

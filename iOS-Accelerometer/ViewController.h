@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <CoreMotion/CoreMotion.h>
+#import "Model.h"
 
 @interface ViewController : UIViewController
 
@@ -18,5 +19,17 @@
 
 // motion manager
 @property (strong, nonatomic) CMMotionManager *motionManager;
+
+// rolling ball model
+@property (strong, nonatomic) Model *model;
+
+// the view
+@property (weak, nonatomic) IBOutlet UIView *blackBox;
+
+// the ball image
+@property (nonatomic, strong) UIImage* ball;
+@property (nonatomic, strong) UIImageView* ballView;
+
+- (void) showBall;
 
 @end
