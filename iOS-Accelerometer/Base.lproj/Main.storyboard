@@ -77,6 +77,11 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="accX" destination="p3c-FF-3v0" id="PaP-7L-c1O"/>
+                        <outlet property="accY" destination="KDo-qN-bR9" id="AeK-IY-FsG"/>
+                        <outlet property="accZ" destination="J7J-ye-8kb" id="swP-Hl-bC3"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
