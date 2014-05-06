@@ -14,10 +14,6 @@
 
 @implementation ViewController
 
-@synthesize accelerometerAvailable;
-@synthesize currentAccX;
-@synthesize currentAccY;
-@synthesize currentAccZ;
 @synthesize accX;
 @synthesize accY;
 @synthesize accZ;
@@ -27,27 +23,26 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     
-    [self checkForAccelerometer];
-    
-    currentAccX = 0.0;
-    currentAccY = 0.0;
-    currentAccZ = 0.0;
-
     // initialize motion manager
     self.motionManager = [[CMMotionManager alloc] init];
-    self.motionManager.accelerometerUpdateInterval = .2;
-    self.motionManager.gyroUpdateInterval = .2;
+    self.motionManager.accelerometerUpdateInterval = 1.0/60.0;
 
-    
-}
-
-- (void) checkForAccelerometer
-{
-    if (accelerometerAvailable) {
-        NSLog(@"Yes, this device has an accelerometer");
+    if ([self.motionManager isAccelerometerAvailable]) {
+        
+        NSOperationQueue *queue = [[NSOperationQueue alloc] init];
+        
+        [self.motionManager startAccelerometerUpdatesToQueue:queue withHandler:^(CMAccelerometerData *accelerometerData, NSError *error) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                self.accX.text = [NSString stringWithFormat:@"%.2f",accelerometerData.acceleration.x];
+                self.accY.text = [NSString stringWithFormat:@"%.2f",accelerometerData.acceleration.y];
+                self.accZ.text = [NSString stringWithFormat:@"%.2f",accelerometerData.acceleration.z];
+            });
+        }];
+        
     } else {
-        NSLog(@"No accelerometer is available!");
+        NSLog(@"No accelerometer is available! You may be running on the iOS simulator...");
     }
+    
 }
 
 - (void)didReceiveMemoryWarning
