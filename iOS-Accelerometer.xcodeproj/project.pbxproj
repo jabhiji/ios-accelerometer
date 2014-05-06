@@ -21,6 +21,8 @@
 		1E2E71411918B482009D232C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E2E71231918B482009D232C /* UIKit.framework */; };
 		1E2E71491918B482009D232C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1E2E71471918B482009D232C /* InfoPlist.strings */; };
 		1E2E714B1918B482009D232C /* iOS_AccelerometerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E2E714A1918B482009D232C /* iOS_AccelerometerTests.m */; };
+		1E2E71551918B49F009D232C /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E2E71541918B49F009D232C /* CoreMotion.framework */; };
+		1E2E71571918B4DA009D232C /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E2E71561918B4DA009D232C /* background.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +55,8 @@
 		1E2E71461918B482009D232C /* iOS-AccelerometerTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "iOS-AccelerometerTests-Info.plist"; sourceTree = "<group>"; };
 		1E2E71481918B482009D232C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		1E2E714A1918B482009D232C /* iOS_AccelerometerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = iOS_AccelerometerTests.m; sourceTree = "<group>"; };
+		1E2E71541918B49F009D232C /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
+		1E2E71561918B4DA009D232C /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +64,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1E2E71551918B49F009D232C /* CoreMotion.framework in Frameworks */,
 				1E2E71221918B482009D232C /* CoreGraphics.framework in Frameworks */,
 				1E2E71241918B482009D232C /* UIKit.framework in Frameworks */,
 				1E2E71201918B482009D232C /* Foundation.framework in Frameworks */,
@@ -101,6 +106,7 @@
 		1E2E711E1918B482009D232C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1E2E71541918B49F009D232C /* CoreMotion.framework */,
 				1E2E711F1918B482009D232C /* Foundation.framework */,
 				1E2E71211918B482009D232C /* CoreGraphics.framework */,
 				1E2E71231918B482009D232C /* UIKit.framework */,
@@ -118,6 +124,7 @@
 				1E2E71341918B482009D232C /* ViewController.h */,
 				1E2E71351918B482009D232C /* ViewController.m */,
 				1E2E71371918B482009D232C /* Images.xcassets */,
+				1E2E71561918B4DA009D232C /* background.png */,
 				1E2E71261918B482009D232C /* Supporting Files */,
 			);
 			path = "iOS-Accelerometer";
@@ -229,6 +236,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1E2E71381918B482009D232C /* Images.xcassets in Resources */,
+				1E2E71571918B4DA009D232C /* background.png in Resources */,
 				1E2E712A1918B482009D232C /* InfoPlist.strings in Resources */,
 				1E2E71331918B482009D232C /* Main.storyboard in Resources */,
 			);
