@@ -14,6 +14,7 @@
 
 @implementation ViewController
 
+@synthesize minMag, magnitude, maxMag;
 @synthesize minX, minY, minZ;
 @synthesize accX, accY, accZ;
 @synthesize maxX, maxY, maxZ;
@@ -65,9 +66,18 @@
     
     [motionManager startAccelerometerUpdatesToQueue:queue withHandler:^(CMAccelerometerData *accelerometerData, NSError *error) {
         dispatch_async(dispatch_get_main_queue(), ^{
+          
+            // acceleration components (X, Y and Z)
             model.accelerationX = accelerometerData.acceleration.x;
             model.accelerationY = accelerometerData.acceleration.y;
             model.accelerationZ = accelerometerData.acceleration.z;
+            
+            // calculate acceleration magnitude
+            float acceleration = [model accelerationMagnitude];
+            
+            // store min and max values
+            if (acceleration < model.accMin) model.accMin = acceleration;
+            if (acceleration > model.accMax) model.accMax = acceleration;
             
             if (model.accelerationX < model.minAccX) model.minAccX = model.accelerationX;
             if (model.accelerationY < model.minAccY) model.minAccY = model.accelerationY;
@@ -77,6 +87,10 @@
             if (model.accelerationY > model.maxAccY) model.maxAccY = model.accelerationY;
             if (model.accelerationZ > model.maxAccZ) model.maxAccZ = model.accelerationZ;
 
+            self.minMag.text    = [NSString stringWithFormat:@"%.1f",model.accMin];
+            self.magnitude.text = [NSString stringWithFormat:@"%.1f",acceleration];
+            self.maxMag.text    = [NSString stringWithFormat:@"%.1f",model.accMax];
+            
             self.minX.text = [NSString stringWithFormat:@"%.1f",model.minAccX];
             self.minY.text = [NSString stringWithFormat:@"%.1f",model.minAccY];
             self.minZ.text = [NSString stringWithFormat:@"%.1f",model.minAccZ];

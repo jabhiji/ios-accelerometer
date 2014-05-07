@@ -14,6 +14,9 @@
 @interface ViewController : UIViewController
 
 // labels
+@property (strong, nonatomic) IBOutlet UILabel *minMag;
+@property (strong, nonatomic) IBOutlet UILabel *magnitude;
+@property (strong, nonatomic) IBOutlet UILabel *maxMag;
 @property (strong, nonatomic) IBOutlet UILabel *accX;
 @property (strong, nonatomic) IBOutlet UILabel *accY;
 @property (strong, nonatomic) IBOutlet UILabel *accZ;

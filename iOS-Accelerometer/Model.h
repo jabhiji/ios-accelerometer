@@ -14,6 +14,7 @@
 @property float x, y, R;
 
 // acceleration values
+@property float accMin, accMagnitude, accMax;
 @property float accelerationX, minAccX, maxAccX;
 @property float accelerationY, minAccY, maxAccY;
 @property float accelerationZ, minAccZ, maxAccZ;
@@ -23,6 +24,7 @@
 @property float height;
 
 // methods
+- (float) accelerationMagnitude;
 - (void) setInitialBallPosition;
 - (void) updateBallPosition;
 - (void) resetValues;

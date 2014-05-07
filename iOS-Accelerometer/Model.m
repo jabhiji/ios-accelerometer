@@ -11,6 +11,7 @@
 @implementation Model
 
 @synthesize x, y, R;
+@synthesize accMin, accMagnitude, accMax;
 @synthesize accelerationX, accelerationY, accelerationZ;
 @synthesize minAccX, maxAccX, minAccY, maxAccY, minAccZ, maxAccZ;
 @synthesize width, height;
@@ -25,6 +26,8 @@
         
         R = 10.0;
         
+        accMin = 1.0;
+        accMax = 1.0;
         minAccX = 0.0;
         maxAccX = 0.0;
         minAccY = 0.0;
@@ -35,6 +38,14 @@
     }
     
     return self;
+}
+
+// calculate the magnitude of the acceleration vector
+- (float) accelerationMagnitude
+{
+    return sqrtf( accelerationX*accelerationX
+                + accelerationY*accelerationY
+                + accelerationZ*accelerationZ);
 }
 
 // set the initial location of the two balls
@@ -58,6 +69,8 @@
 
 - (void) resetValues
 {
+    accMin = 1.0;
+    accMax = 1.0;
     minAccX = 0.0;
     maxAccX = 0.0;
     minAccY = 0.0;
