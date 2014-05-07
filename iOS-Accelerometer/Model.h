@@ -10,17 +10,19 @@
 
 @interface Model : NSObject
 
+// center of the yellow ball
 @property float x, y, R;
 
-@property float speedX, speedY, COR;
-
+// acceleration values
 @property float accelerationX, minAccX, maxAccX;
 @property float accelerationY, minAccY, maxAccY;
 @property float accelerationZ, minAccZ, maxAccZ;
 
-@property float WIDTH;
-@property float HEIGHT;
+// view size in points
+@property float width;
+@property float height;
 
+// methods
 - (void) setInitialBallPosition;
 - (void) updateBallPosition;
 - (void) resetValues;

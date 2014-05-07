@@ -36,8 +36,8 @@
     
     // initialize model
     model = [[Model alloc] init];
-    model.WIDTH  = self.myView.frame.size.width;
-    model.HEIGHT = self.myView.frame.size.height;
+    model.width  = self.myView.frame.size.width;
+    model.height = self.myView.frame.size.height;
     [model setInitialBallPosition];
     
     // display initial condition before animation starts
