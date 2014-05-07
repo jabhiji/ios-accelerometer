@@ -1,0 +1,6 @@
+ios-accelerometer
+=================
+
+native ios app to use the accelerometer
+
+This app displays the instantaneous acceleration magnitude and components along X, Y and Z. It also plots the instantaneous X and Y conponents on screen in a graphical format.
