@@ -47,10 +47,17 @@
     float maxR = width/2.0;     // WIDTH = HEIGHT in this app
     float ONEGEE = 0.666*maxR;
     
+    // big circle to fill corners
+    CGContextBeginPath(context);
+    CGContextAddArc(context, xCen, yCen, 3*ONEGEE, 0, 2*M_PI, YES);
+    [[UIColor blueColor] setFill];
+    [[UIColor blackColor] setStroke];
+    CGContextDrawPath(context, kCGPathFillStroke);
+    
     // outermost red circle (2g)
     CGContextBeginPath(context);
     CGContextAddArc(context, xCen, yCen, 2*ONEGEE, 0, 2*M_PI, YES);
-    [[UIColor redColor] setFill];
+    [[UIColor blueColor] setFill];
     [[UIColor blackColor] setStroke];
     CGContextDrawPath(context, kCGPathFillStroke);
     
