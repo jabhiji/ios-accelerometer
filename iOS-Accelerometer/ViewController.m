@@ -35,14 +35,18 @@
     // draw custom drawing inside the view (as background)
     [myView setNeedsDisplay];
     
+    // crop anything that is outside the view
+    myView.clipsToBounds = YES;
+    
     // initialize model
     model = [[Model alloc] init];
     model.width  = self.myView.frame.size.width;
     model.height = self.myView.frame.size.height;
     [model setInitialBallPosition];
     
-    // display initial condition before animation starts
-    [self showYellowBall];
+    // initialize UIIMageView object
+    ballView = [[UIImageView alloc] init];
+    ballView.image = yellowball;
     
     // initialize motion manager
     motionManager = [[CMMotionManager alloc] init];
@@ -119,27 +123,15 @@
 // update model parameters and plot the ball using the view
 - (void) update
 {
-    // remove earlier image
-    [ballView removeFromSuperview];
-    //[self showBlueBall];
-    
     // update ball position
     [model updateBallPosition];
     
     // draw the ball at the new location
-    [self showYellowBall];
-}
-
-// draw the balls in the defined view
-- (void) showYellowBall
-{
     float x = model.x;
     float y = model.y;
     float R = model.R;
     
-    ballView = [[UIImageView alloc]
-                 initWithFrame:CGRectMake(x-R, y-R, 2*R, 2*R)];
-    ballView.image = yellowball;
+    ballView.frame = CGRectMake(x-R, y-R, 2*R, 2*R);
     [self.myView addSubview:ballView];
 }
 
