@@ -132,7 +132,7 @@
     float R = model.R;
     
     ballView.frame = CGRectMake(x-R, y-R, 2*R, 2*R);
-    [self.myView addSubview:ballView];
+    [myView addSubview:ballView];
 }
 
 - (void)didReceiveMemoryWarning
